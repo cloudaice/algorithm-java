@@ -1,0 +1,71 @@
+ public tree TREE;
+	public tree ITREE;
+	public JCheckBox[] Tree_data_array=new JCheckBox[31];
+	public int count1=0;
+	public int count2=0;
+	public int count3=0;
+	public class tree
+	{
+		tree lchild;
+		JCheckBox data;
+		tree rchild;
+	}
+	public  Tree()
+	{
+	TREE=null;
+ 	TREE=ITREE;
+	}
+	public void Insertleft(JCheckBox data1)
+	{
+		ITREE.data=data1;
+		ITREE=ITREE.lchild;
+		
+	}
+	public void Insertright(JCheckBox data2)
+	{
+		ITREE.data=data2;
+		ITREE=ITREE.rchild;
+	}
+	public Boolean Isempty(tree itree)
+	{
+		if (itree==null)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+	public  void  Preonder(tree TREE1)
+	{   
+		
+		if (!Isempty(TREE1))
+		{
+			Tree_data_array[count1]=TREE1.data;
+			count1++;
+			Preonder(TREE1.lchild);
+			Preonder(TREE1.rchild);
+			
+		}
+		
+	}
+	public void Inonder(tree TREE1)
+	{
+		if (!Isempty(TREE1))
+		{
+			Inonder(TREE1.lchild);
+			Tree_data_array[count2]=TREE1.data;
+			count2++;
+			Inonder(TREE1.rchild);
+		}
+	}
+	public void Postonder(tree TREE1)
+	{
+		if (!Isempty(TREE1))
+		{
+			Postonder(TREE1.lchild);
+			Postonder(TREE1.rchild);
+			Tree_data_array[count3]=TREE1.data;
+			count3++;
+			
+		}
+	}
